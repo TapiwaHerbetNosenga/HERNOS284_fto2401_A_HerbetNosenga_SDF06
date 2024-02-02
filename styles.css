@@ -1,0 +1,272 @@
+/* Base Styles */
+
+:root {
+    font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Open Sans", Arial, sans-serif;
+    min-height: 100vh;
+    background-color: #fafafa;
+    color: #262626;
+    padding-bottom: 3rem;
+    margin:auto;
+}
+header{
+    border-bottom: solid 3px black;
+    margin-bottom: 2vw;
+    background-color: beige;
+}
+
+/*The font sizing was an embarrassing part of the css for, it messed up my layout because the font size exceeded the bounds of the HTML element and I couldnt figure out what waas causing the disruption*/
+h1{
+    font-size: 4em;
+    transition:all 0.5s;
+}
+
+/*My hover part of the styling*/
+h1:hover{
+    color: red;
+}
+
+p, li{
+    font-size: 2em;
+}
+
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.headBox{
+width: 100%;
+}
+.profile{
+display: grid;
+grid-template-rows: 300px;
+grid-template-columns: 50% 1fr;
+grid-gap: 5px;
+}
+
+.profile-image{
+grid-column: 1/2;
+
+}
+
+#profile-readables{
+grid-column: 2/-1;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+/*the readables class an important part of my problem solving for the grid in the header, I was struggling to make it work before I added this class*/
+.readables{
+grid-row: span 1;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+.profile-bio{
+grid-row: -3/-1;
+}
+
+.readables ul{
+display: flex;
+justify-content: space-evenly;
+list-style: none;
+padding: 0;
+}
+
+.gallery{
+display:flex;
+flex-direction: column;
+justify-content: space-evenly;
+}
+
+.gallery-item{
+width: 100%;
+height: 80vw;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 90% 10%;
+}
+
+.gallery-item img {
+    grid-row: 1/2;
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+    margin: auto;
+    transition: all 0.5s;
+}
+
+.gallery-item img:hover{
+    border: solid 5px black;
+}
+
+.gallery-item-info{
+grid-row:2/3;
+display:flex;
+justify-content: flex-start;
+}
+.gallery-item-info ul{
+display: flex;
+justify-content: space-evenly;
+width: 100%;
+
+}
+
+.gallery-item-info ul li{
+display: inline;
+
+}
+/*This loader animation gave me trouble, I had to declare the bottom-border color after the border shorthand was declared for it to work*/
+.loader{
+    justify-self: center;
+    width: 3vw;
+    height: 3vw;
+    border: solid 5px red;
+    border-bottom-color: transparent;
+    
+    animation: rotate 0.5s linear 0s infinite normal;
+    animation-fill-mode: forwards;
+    border-radius: 100%;
+}
+
+#loadBox{
+    display: flex;
+    justify-content: center;
+}
+
+li{
+    margin:1vw;
+}
+
+
+/*During the creation of this media query I forgot to place it after the default code*/
+@keyframes rotate {
+    
+    100%{transform: rotate(360deg);}
+    
+}
+
+@media only screen and (max-width: 600px){
+/*i struggled a bit with sizing the image had to do some googling*/
+header{
+    border-bottom: solid 3px black;
+    margin-bottom: 2vw;
+    background-color: beige;
+  
+}
+h1{
+    font-size: 2.5em;
+}
+
+p, li{
+    font-size: 1.5em;
+}
+img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+}
+    .headBox{
+    width: 100%;
+    padding: 5px;
+}
+.profile{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 50% 1fr;
+    grid-gap: 5px;
+}
+
+.profile-image{
+    grid-column: 1/2;
+    
+}
+
+#profile-readables{
+    grid-column: 2/-1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+.readables{
+    
+    grid-row: span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-bio{
+    grid-row: -3/-1;
+}
+
+.readables ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.gallery{
+display:flex;
+flex-direction: column;
+justify-content: space-evenly;
+}
+
+.gallery-item{
+    width: 60%;
+    height: 80vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 90% 10%;
+    margin: auto;
+}
+
+.gallery-item img {
+    grid-row: 1/2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.gallery-item-info{
+    grid-row:2/3;
+    display:flex;
+    justify-content: flex-start;
+}
+.gallery-item-info ul{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 0;
+    margin:0;
+
+}
+
+.gallery-item-info ul li{
+    display: inline;
+    
+}
+
+}
+
+
+
+
+
